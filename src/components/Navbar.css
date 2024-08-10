@@ -1,0 +1,30 @@
+/* File: src/components/HomePage.css */
+.hero {
+  background: url('../assets/2\ .webp') no-repeat center center/cover;
+  height: 70vh; /* Adjust height as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.5); /* Enhances readability */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #f7c08a; /* Match the color scheme of the "Get Help" page */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #f7c08a; /* Match the color scheme of the "Get Help" page */
+}

@@ -1,38 +1,109 @@
-.App {
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2d2d2d; /* Dark background to reflect the serious tone */
+  color: #f0f0f0; /* Light text color for contrast */
+}
+
+header {
+  background-color: #333; /* Dark header background */
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  color: #f7c08a; /* Muted color for the header text */
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Adjusted CSS for the Hero Section */
+.hero {
+  background: url('./assets/2\ .webp') no-repeat center center;
+  background-size: cover;
+  background-position: center top; /* Adjust this value to focus on the face */
+  height: 100vh; /* Increase the height if needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+}
+
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin: 20px 0;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+/* Support/Resources Section */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: #444; /* Card background */
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #f7c08a;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer p {
+  margin: 0;
+  color: #ccc;
+  font-size: 0.9rem;
 }
