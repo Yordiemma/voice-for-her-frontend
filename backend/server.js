@@ -1,103 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import './HomePage.css';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
+const cors = require('cors');
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-function HomePage() {
-  const [data, setData] = useState([]);
+// Middleware
+app.use(cors());
+app.use(express.json());
 
-  useEffect(() => {
-    // Updated mock data
-    const mockData = [
-      { "location": "Addis Ababa", "count": 5 },
-      { "location": "Amhara", "count": 20 },
-      { "location": "Oromia", "count": 7 },
-      { "location": "Tigray", "count": 18 },
-      { "location": "Somali", "count": 4 },
-      { "location": "Afar", "count": 3 },
-      { "location": "Benishangul-Gumuz", "count": 2 },
-      { "location": "Gambela", "count": 4 },
-      { "location": "Harari", "count": 2 },
-      { "location": "Sidama", "count": 6 },
-      { "location": "SNNPR", "count": 8 },
-      { "location": "Dire Dawa", "count": 3 }
-    ];
-    setData(mockData);
-  }, []);
+// Connect to SQLite database
+const db = new sqlite3.Database('./abuse_reports.db', (err) => {
+  if (err) {
+    console.error('Error opening database:', err);
+  } else {
+    console.log('Connected to SQLite database.');
+    
+    db.run(`
+      CREATE TABLE IF NOT EXISTS reports (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        age INTEGER,
+        location TEXT,
+        description TEXT
+      )
+    `);
+  }
+});
 
-  return (
-    <div>
-      <header className="site-header">
-        <h1 className="site-title">Voice For Her</h1>
-      </header>
-      <Navbar />
+// Route to submit a new report
+app.post('/reports', (req, res) => {
+  const { name, age, location, description } = req.body;
 
-      <section className="hero">
-        <div className="hero-content">
-          <p>Women's abuse due to war. Our mission is to raise awareness and provide support.</p>
-        </div>
-      </section>
+  const query = `
+    INSERT INTO reports (name, age, location, description)
+    VALUES (?, ?, ?, ?)
+  `;
 
-      <section className="cards-section">
-        <div className="card">
-          <h3>Support</h3>
-          <p>Find resources and support for those affected by the conflict.</p>
-        </div>
-        <div className="card">
-          <h3>Stories</h3>
-          <p>Read and share stories from those who have been impacted.</p>
-        </div>
-        <div className="card">
-          <h3>Report an Incident</h3>
-          <form className="report-form">
-            <label>
-              Name:
-              <input type="text" name="name" required />
-            </label>
-            <label>
-              Age:
-              <input type="number" name="age" required />
-            </label>
-            <label>
-              Location:
-              <input type="text" name="location" required />
-            </label>
-            <label>
-              Description:
-              <textarea name="description" required></textarea>
-            </label>
-            <label>
-              Date:
-              <input type="date" name="date" required />
-            </label>
-            <button type="submit">Submit Report</button>
-          </form>
-        </div>
-      </section>
+  db.run(query, [name, age, location, description], function (err) {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(201).send({ id: this.lastID });
+    }
+  });
+});
 
-      <section className="data-visualization-section">
-        <h2>Incident Reports by Location</h2>
-        <div className="visualization">
-          {data.length > 0 ? (
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={data} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" />
-                <YAxis type="category" dataKey="location" />
-                <Tooltip />
-                <Bar dataKey="count" fill="#82ca9d" />
-              </BarChart>
-            </ResponsiveContainer>
-          ) : (
-            <p>No data available or loading...</p>
-          )}
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
-}
-
-export default HomePage;
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

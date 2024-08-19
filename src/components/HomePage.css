@@ -6,7 +6,7 @@
 }
 
 .site-title {
-  color: #f4c542;
+  color: #f44242;
   font-size: 3rem;
   margin: 0;
 }
@@ -90,24 +90,4 @@
   transition: background-color 0.3s ease;
 }
 
-.report-form button:hover {
-  background-color: #ffdf80;
-}
 
-.data-visualization-section {
-  background-color: #333;
-  padding: 40px;
-  color: #f4f4f4;
-  text-align: center;
-}
-
-.data-visualization-section h2 {
-  color: #f4c542;
-  margin-bottom: 20px;
-}
-
-.visualization {
-  margin-top: 20px;
-  height: 300px; /* Ensure there's enough space for visualization */
-  background-color: grey; /* Temporary background to make it visible */
-}

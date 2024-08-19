@@ -1,6 +1,6 @@
 /* File: src/components/About.css */
 .site-header {
-  background-color: #2c2c2c; /* Same dark background as other pages */
+  background-color: hsl(223, 75%, 53%); /* Same dark background as other pages */
   text-align: center;
   padding: 20px 0;
 }

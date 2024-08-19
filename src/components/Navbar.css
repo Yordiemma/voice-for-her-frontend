@@ -20,11 +20,11 @@
 .hero-title {
   font-size: 3rem;
   margin-bottom: 20px;
-  color: #f7c08a; /* Match the color scheme of the "Get Help" page */
+  color: hsl(0, 74%, 45%); /* Match the color scheme of the "Get Help" page */
 }
 
 .hero p {
   font-size: 1.2rem;
   line-height: 1.5;
-  color: #f7c08a; /* Match the color scheme of the "Get Help" page */
+  color: hsl(0, 85%, 46%); /* Match the color scheme of the "Get Help" page */
 }
