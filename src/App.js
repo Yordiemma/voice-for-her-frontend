@@ -1,12 +1,10 @@
-// File: src/App.js
 import React from 'react';
-import './App.css'; // Ensure this file is in the src directory, not components.
+import './App.css'; // Import the global styles
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import About from './components/About';
 import Help from './components/Help';
-
 
 function App() {
   return (
@@ -16,7 +14,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
           <Route path="/help" element={<Help />} />
-         
         </Routes>
       </div>
     </Router>

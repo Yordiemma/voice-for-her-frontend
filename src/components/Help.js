@@ -13,7 +13,7 @@ function Help() {
       <Navbar /> {/* Navbar below the header */}
       <section className="help-section">
         <h1>Get Help</h1>
-        <p className="intro-text">Need help now? Contact these organizations.</p>
+        <p className="intro-text">Need help now? Contact these organizations./እርዳታ ከፈለጉ እነዚህን የጠቀሙ</p>
         <div className="card-container">
           <div className="help-card">
             <h3>Ethiopian Women's Lawyers Association (EWLA)</h3>

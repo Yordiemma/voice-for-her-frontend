@@ -1,4 +1,3 @@
-// File: src/components/About.js
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -9,7 +8,7 @@ function About() {
   return (
     <div>
       <header className="site-header">
-        <h1 className="site-title">Voice For Her</h1>
+        <h1 className="site-title">About Voice For Her</h1> {/* More descriptive title */}
       </header>
       <Navbar />
       <section className="about-section">
