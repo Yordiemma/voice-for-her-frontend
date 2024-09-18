@@ -8,22 +8,22 @@ function About() {
   return (
     <div>
       <header className="site-header">
-        <h1 className="site-title">About Voice For Her</h1> {/* More descriptive title */}
+        <h1 className="site-title">About Voice For Her/የሴቶችና ሕፃናት ድምፅ</h1> {/* More descriptive title */}
       </header>
       <Navbar />
       <section className="about-section">
         <img src={profileImage} alt="Your Name" className="profile-photo" />
         <div className="about-content">
-          <h2>About Me</h2>
+          <h2>About Voice For Her/የሴቶችና ሕፃናት ድምፅ</h2>
           <p>
-            I was born into a mixed family with roots in both the Amhara and Tigray regions. Growing up, I always believed that no one chooses their ethnic group, religion, or country of birth, and that these circumstances should never be a cause for suffering.
+          At Voice For Her, our mission is to amplify the voices of women and children who have been deeply affected by the ongoing conflicts in Ethiopia, particularly in the Amhara and Tigray regions. War and violence have left these vulnerable populations without homes, education, and essential healthcare. Many have endured unspeakable trauma, and their stories often go unheard.
           </p>
           <p>
-            I've lived in Bahir Dar for a couple of years, and I've seen firsthand the innocence and kindness of the people there. It deeply pains me to see the ongoing genocide in the Amhara region, orchestrated by the Ethiopian government. As the world knows, this same government has also inflicted immense suffering on the Tigray people.
+          This platform serves as a space to raise awareness about their suffering and provide resources for support. We aim to gather data on the atrocities committed, share the personal stories of survivors, and mobilize global assistance for those in need. Through advocacy and direct support, we are committed to building a future where every woman and child can live with dignity, peace, and opportunity.
+
+
           </p>
-          <p>
-            My goal with this platform is to be a voice for those who cannot speak out, to raise awareness, and to stand against these atrocities. Together, we can work towards a future where all people are treated with the dignity and respect they deserve, regardless of their background.
-          </p>
+         
         </div>
       </section>
       <Footer />

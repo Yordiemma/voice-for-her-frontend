@@ -12,14 +12,14 @@
   font-size: 2.5rem;
   margin-bottom: 20px;
   text-align: center;
-  color: #f4c542; /* Match the color of Ethiopian Women's Lawyers Association (EWLA) */
+  color: #0c0c0b; /* Match the color of Ethiopian Women's Lawyers Association (EWLA) */
 }
 
 .help-section p.intro-text {
   font-size: 1.2rem;
   line-height: 1.8;
   text-align: center; /* Center the introductory text */
-  color: #f4c542; /* Match the color of Ethiopian Women's Lawyers Association (EWLA) */
+  color: #0c0c0b; /* Match the color of Ethiopian Women's Lawyers Association (EWLA) */
   margin-bottom: 40px; /* Add more space below the intro text */
 }
 
