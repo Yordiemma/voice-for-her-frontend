@@ -15,12 +15,16 @@ function HomePage() {
   });
 
   const [reports, setReports] = useState([]);
-
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await fetch('http://localhost:5000/reports');
+        const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || (process.env.NODE_ENV === 'development' 
+          ? 'http://localhost:5000' 
+          : 'https://voiceforher-backend.onrender.com');
+        
+        const response = await fetch(`${API_BASE_URL}/reports`); 
         const data = await response.json();
+        console.log('Fetched Reports:', data);  // Log reports to see the fetched data
         setReports(data);
       } catch (error) {
         console.error('Error fetching reports:', error);
@@ -28,6 +32,7 @@ function HomePage() {
     };
     fetchReports();
   }, []);
+  
 
   const handleChange = (e) => {
     setFormData({
@@ -39,7 +44,11 @@ function HomePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/reports', {
+      const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || (process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:5000' 
+        : 'https://voiceforher-backend.onrender.com');
+      
+      const response = await fetch(`${API_BASE_URL}/reports`, {  // Fix: Replaced hardcoded localhost with API_BASE_URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -61,10 +70,11 @@ function HomePage() {
   // Group data by ethnic group (Amhara and Tigray only)
   const ethnicGroups = ['አማራ', 'ትግራይ'];
 
-  const ethnicGroupData = ethnicGroups.map(group => {
-    const reportsInGroup = reports.filter(report => report.ethnic_group === group);
-    return reportsInGroup.length;
-  });
+const ethnicGroupData = ethnicGroups.map(group => {
+  const reportsInGroup = reports.filter(report => report.ethnic_group === group);
+  return reportsInGroup.length;
+});
+
 
   const dataForChart = {
     labels: ethnicGroups, // X-axis labels (ethnic groups)
