@@ -13,7 +13,7 @@ function Footer() {
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/profile.php?id=100072061754806" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
           <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
