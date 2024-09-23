@@ -177,6 +177,30 @@ const ethnicGroupData = ethnicGroups.map(group => {
           <img src={require('../assets/et.webp')} alt="Empowering Women and Children 2" />
         </div>
       </section>
+      {/* Havan's Story Section */}
+<section className="havan-story">
+  <div className="havan-container">
+    <div className="havan-image">
+      <img src={require('../assets/Faven.jpg')} alt="Havan" />
+    </div>
+    <div className="havan-description">
+      <h3>About Havan</h3>
+      <p>
+        Havan, a 7-year-old girl, has become a symbol of resilience in the face of violence against women and children. 
+        Her story is a voice for all those who have suffered abuse during conflict. Havan's story, though tragic, 
+        represents the strength of those who endure unimaginable hardships.
+      </p>
+      <p>
+        By sharing her story, we aim to raise awareness and stand against violence, advocating for justice and 
+        protection for the most vulnerable.
+      </p>
+      <p>
+        You can learn more about Havan's story by visiting the full article here:
+        <a href="https://zehabesha.com/rape-and-murder-of-7-year-old-girl-public-outrage-news-examiner/" target="_blank" rel="noopener noreferrer"> Read the Full Story</a>
+      </p>
+    </div>
+  </div>
+</section>
       {/* Data Visualization and Donation Section Side by Side */}
       <section className="data-donation-wrapper">
         {/* Data Visualization Section */}
