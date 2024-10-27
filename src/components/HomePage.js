@@ -16,21 +16,21 @@ function HomePage() {
 
   const [reports, setReports] = useState([]);
   useEffect(() => {
-    const fetchReports = async () => {
+    const fetchReportsSummary = async () => {
       try {
         const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || (process.env.NODE_ENV === 'development' 
           ? 'http://localhost:5000' 
           : 'https://voiceforher-backend.onrender.com');
         
-        const response = await fetch(`${API_BASE_URL}/reports`); 
+        const response = await fetch(`${API_BASE_URL}/reports-summary`);
         const data = await response.json();
-        console.log('Fetched Reports:', data);  // Log reports to see the fetched data
+        console.log('Fetched Reports Summary:', data);
         setReports(data);
       } catch (error) {
-        console.error('Error fetching reports:', error);
+        console.error('Error fetching reports summary:', error);
       }
     };
-    fetchReports();
+    fetchReportsSummary();
   }, []);
   
 
@@ -63,7 +63,7 @@ function HomePage() {
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('ሪፖርቱን ለማስገባት በማንኛውም ሁኔታ አልተሳካም');
+      alert('ሪፖርቱን አልተሳካም');
     }
   };
 

@@ -22,6 +22,8 @@
     "react-simple-maps": "^3.0.0",
     "recharts": "^2.12.7",
     "web-vitals": "^2.1.4"
+    
+
   },
   "scripts": {
     "start": "react-scripts start",
