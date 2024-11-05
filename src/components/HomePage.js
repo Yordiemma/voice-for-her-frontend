@@ -15,6 +15,7 @@ function HomePage() {
   });
 
   const [reports, setReports] = useState([]);
+
   useEffect(() => {
     const fetchReportsSummary = async () => {
       try {
@@ -23,8 +24,13 @@ function HomePage() {
           : 'https://voiceforher-backend.onrender.com');
         
         const response = await fetch(`${API_BASE_URL}/reports-summary`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+  
         const data = await response.json();
-        console.log('Fetched Reports Summary:', data);
+        console.log('Fetched Reports Summary:', data); // Log the fetched data
         setReports(data);
       } catch (error) {
         console.error('Error fetching reports summary:', error);
@@ -32,6 +38,39 @@ function HomePage() {
     };
     fetchReportsSummary();
   }, []);
+  
+//   useEffect(() => {
+//     const fetchReportsSummary = async () => {
+//       try {
+//         const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || (process.env.NODE_ENV === 'development' 
+//           ? 'http://localhost:5000' 
+//           : 'https://voiceforher-backend.onrender.com');
+        
+//     //     const response = await fetch(`${API_BASE_URL}/reports-summary`);
+//     //     const data = await response.json();
+//     //     console.log('Fetched Reports Summary:', data);
+//     //     setReports(data);
+//     //   } catch (error) {
+//     //     console.error('Error fetching reports summary:', error);
+//     //   }
+//     // };
+//     const response = await fetch(`${API_BASE_URL}/reports-summary`);
+    
+//     if (!response.ok) {
+//       throw new Error('Failed to fetch data');
+//     }
+
+//     const data = await response.json();
+//     console.log('Fetched Reports Summary:', data);
+    
+//     // Set the reports directly from the fetched data
+//     setReports(data);
+//   } catch (error) {
+//     console.error('Error fetching reports summary:', error);
+//   }
+// };
+//     fetchReportsSummary();
+//   }, []);
   
 
   const handleChange = (e) => {
@@ -74,6 +113,10 @@ const ethnicGroupData = ethnicGroups.map(group => {
   const reportsInGroup = reports.filter(report => report.ethnic_group === group);
   return reportsInGroup.length;
 });
+
+
+
+
 
 
   const dataForChart = {
