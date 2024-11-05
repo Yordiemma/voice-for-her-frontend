@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
+
 import './HomePage.css';
 import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
@@ -143,7 +142,7 @@ const ethnicGroupData = ethnicGroups.map(group => {
 
   return (
     <div>
-      <Navbar />
+     
       <header className="site-header">
         <h1 className="site-title">Voice For Her/የሴቶችና ሕፃናት ድምፅ</h1>
         <p className="site-tagline">Raising awareness and giving a voice to the women and children affected by war in Ethiopia</p>
@@ -285,7 +284,7 @@ const ethnicGroupData = ethnicGroups.map(group => {
       </section>
 
 
-      <Footer />
+      
     </div>
   );
 }
