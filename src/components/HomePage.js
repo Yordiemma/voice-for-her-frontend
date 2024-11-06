@@ -29,7 +29,7 @@ function HomePage() {
         }
   
         const data = await response.json();
-        console.log('Fetched Reports Summary:', data); // Log the fetched data
+        //console.log('Fetched Reports Summary:', data);  Log the fetched data
         setReports(data);
       } catch (error) {
         console.error('Error fetching reports summary:', error);

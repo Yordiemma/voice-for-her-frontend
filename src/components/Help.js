@@ -1,6 +1,5 @@
 import React from 'react';
-import Navbar from './Navbar'; // Import the Navbar component
-import Footer from './Footer'; // Import the Footer component
+
 import './Help.css';
 
 function Help() {
@@ -9,7 +8,7 @@ function Help() {
       <header className="site-header">
         <h1 className="site-title">Voice For Her</h1> {/* Same header as homepage */}
       </header>
-      <Navbar /> {/* Navbar below the header */}
+
       <section className="help-section">
         <h1>Get Help</h1>
         <p className="intro-text">Need help now? Contact these organizations./እርዳታ ከፈለጉ እነዚህን የጠቀሙ</p>
@@ -83,7 +82,7 @@ function Help() {
           
         </div>
       </section>
-      <Footer /> {/* Include Footer */}
+    
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
+
 import './About.css'; // Import the CSS for About component
 import profileImage from '../assets/3.jpg'; // Correctly import the image
 
@@ -10,7 +9,7 @@ function About() {
       <header className="site-header">
         <h1 className="site-title">About Voice For Her/የሴቶችና ሕፃናት ድምፅ</h1> {/* More descriptive title */}
       </header>
-      <Navbar />
+     
       <section className="about-section">
         <img src={profileImage} alt="Your Name" className="profile-photo" />
         <div className="about-content">
@@ -26,7 +25,7 @@ function About() {
          
         </div>
       </section>
-      <Footer />
+     
     </div>
   );
 }
