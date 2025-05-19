@@ -5,7 +5,7 @@ function Awareher() {
   return (
     <div className="awareher-container">
       <h1 className="awareher-title">Awareher Blog</h1>
-      <p>Welcome to Awareher, a space dedicated to raising awareness about the struggles and resilience of women and children affected by conflict.</p>
+     
 
       <section className="havan-story">
         <div className="havan-container">

@@ -1,0 +1,48 @@
+/* Hero Section */
+img {
+    max-inline-size: 100%;
+  }
+  
+  .hero {
+    width: 100vw;
+    height: 70vh; 
+    background: 
+      linear-gradient(
+        rgba(255, 140, 0, 0.7), 
+        rgba(255, 140, 0, 0.7)
+      ), 
+      url(../assets/w\ copy.png); /* Use  image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* To position the text properly */
+  }
+  
+  /* Hero Text Over Image */
+  .hero-text {
+    background-color: rgba(0, 0, 0, 0.5); /* Darker background to make text stand out */
+    padding: 40px; /* More padding for better spacing */
+    width: 80%; /* Adjust width to fit the screen nicely */
+    max-width: 600px; /* Set a max width to prevent it from being too wide */
+    text-align: center;
+    z-index: 10;
+    border-radius: 10px; /* Slight border-radius for a smooth edge */
+  }
+  
+  /* Hero Text Styling */
+  .hero h1 {
+    font-size: 3rem; /* Main heading font size */
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #FFD700; /* Gold color for the text */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+  }
+  

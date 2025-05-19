@@ -5,7 +5,7 @@ import Footer from './components/Footer'; // Import Footer here
 import HomePage from './components/HomePage';
 import About from './components/About';
 import Help from './components/Help';
-import Awareher from './components/Awareher';
+import AwareHer from './components/Awareher';
 function App() {
   return (
     <Router>
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/help" element={<Help />} />
-        <Route path="/awareher" element={<Awareher />} /> {/* Add Awareher route */}
+        <Route path="/awareHer" element={<AwareHer />} /> {/* Add Awareher route */}
       </Routes>
       <Footer /> {/* Footer is now consistent across all pages */}
     </Router>
