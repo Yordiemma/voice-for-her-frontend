@@ -5,13 +5,9 @@ import './Help.css';
 function Help() {
   return (
     <div>
-      <header className="site-header">
-        <h1 className="site-title">Voice For Her</h1> {/* Same header as homepage */}
-      </header>
-
       <section className="help-section">
         <h1>Get Help</h1>
-        <p className="intro-text">Need help now? Contact these organizations./እርዳታ ከፈለጉ እነዚህን የጠቀሙ</p>
+        <p className="intro-text">Need help now? Contact these organizations.</p>
         <div className="card-container">
 
           {/* Red Cross Ethiopia */}

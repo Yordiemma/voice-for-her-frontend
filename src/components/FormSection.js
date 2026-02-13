@@ -1,26 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './FormSection.css';
 
 function FormSection({ formData, handleChange, handleSubmit }) {
+
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    fetch('https://restcountries.com/v3.1/all?fields=name')
+      .then(res => res.json())
+      .then(data => {
+        const countryNames = data
+          .map(c => c.name.common)
+          .sort();
+        setCountries(countryNames);
+      })
+      .catch(err => console.error("Failed to load countries", err));
+  }, []);
+
   return (
     <section className="form-section">
       <div className="form-layout">
-        {/* Left: Explanation */}
+
         <div className="form-description">
           <h3>Why Reporting Matters</h3>
           <p>
-            Sharing your story can help prevent further harm, connect you with professional help, and bring justice. You are not alone.
+            Your report helps raise awareness, improve prevention systems,
+            and support victims safely and anonymously.
           </p>
           <p>
-            Our team includes psychologists and legal professionals ready to support you confidentially and respectfully.
+            This platform protects your privacy. No account is required.
           </p>
         </div>
 
-        {/* Right: The Form */}
         <div className="form-container">
-          <h4>ጥቃት መግለጫ</h4>
+          <h4>Anonymous Abuse Report</h4>
+
           <form className="report-form" onSubmit={handleSubmit}>
-            <label htmlFor="age">እድሜ:</label>
+
+            {/* Abuse Type */}
+            <label htmlFor="abuseType">Type of Abuse</label>
+            <select
+              id="abuseType"
+              name="abuseType"
+              value={formData.abuseType}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select type</option>
+              <option value="physical">Physical</option>
+              <option value="verbal">Verbal</option>
+              <option value="emotional">Emotional</option>
+              <option value="sexual">Sexual</option>
+              <option value="online">Online</option>
+            </select>
+
+            {/* Age */}
+            <label htmlFor="age">Age</label>
             <input
               type="number"
               id="age"
@@ -28,55 +63,42 @@ function FormSection({ formData, handleChange, handleSubmit }) {
               value={formData.age}
               onChange={handleChange}
               required
+              min="1"
+              max="120"
             />
 
-            <label htmlFor="location">ቦታ:</label>
-            <input
-              type="text"
-              id="location"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="ethnic_group">የብሄር ቡድን:</label>
+            {/* Country Dropdown */}
+            <label htmlFor="country">Country</label>
             <select
-              id="ethnic_group"
-              name="ethnic_group"
-              value={formData.ethnic_group}
+              id="country"
+              name="country"
+              value={formData.country}
               onChange={handleChange}
               required
             >
-              <option value="">እባክዎን ይምረጡ</option>
-              <option value="Oromo">Oromo</option>
-              <option value="Amhara">Amhara</option>
-              <option value="Tigray">Tigray</option>
-              <option value="Somali">Somali</option>
-              <option value="Afar">Afar</option>
-              <option value="Other">Other</option>
+              <option value="">Select your country</option>
+              {countries.map((country) => (
+                <option key={country} value={country}>
+                  {country}
+                </option>
+              ))}
             </select>
 
-            <label htmlFor="type_of_abuse">የጥቃት አይነት:</label>
+            {/* Optional Contact */}
+            <label htmlFor="contactInfo">
+              Contact Information (Optional)
+            </label>
             <input
               type="text"
-              id="type_of_abuse"
-              name="type_of_abuse"
-              value={formData.type_of_abuse}
+              id="contactInfo"
+              name="contactInfo"
+              value={formData.contactInfo}
               onChange={handleChange}
-              required
+              placeholder="Email or phone (optional)"
             />
 
-            <label htmlFor="description">መግለጫ:</label>
-            <textarea
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              required
-            ></textarea>
+            <button type="submit">Submit Report</button>
 
-            <button type="submit">ሪፖርት ይላኩ</button>
           </form>
         </div>
       </div>

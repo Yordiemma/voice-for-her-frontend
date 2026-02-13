@@ -7,11 +7,10 @@ import './HomePage.css';
 
 function HomePage() {
   const [formData, setFormData] = useState({
+    abuseType: '',
     age: '',
-    location: '',
-    ethnic_group: '',
-    type_of_abuse: '',
-    description: ''
+    country: '',
+    contactInfo: ''
   });
 
   const handleChange = (e) => {
@@ -21,11 +20,12 @@ function HomePage() {
     });
   };
 
-  // ✅ PLACE YOUR handleSubmit RIGHT HERE:
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 
+      const API_BASE_URL =
+        process.env.REACT_APP_API_BASE_URL ||
         (process.env.NODE_ENV === 'development'
           ? 'http://localhost:5000'
           : 'https://voiceforher-backend.onrender.com');
@@ -35,24 +35,39 @@ function HomePage() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          abuseType: formData.abuseType,
+          age: Number(formData.age),
+          country: formData.country,
+          contactInfo: formData.contactInfo || undefined
+        })
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        alert('ሪፖርቱ በተሳካ ሁኔታ ተላክ!');
+        alert(data.message);
+
+        if (data.contactRemovalToken) {
+          alert(
+            "Save this token to remove contact info later: " +
+              data.contactRemovalToken
+          );
+        }
+
+        // Reset form
         setFormData({
+          abuseType: '',
           age: '',
-          location: '',
-          ethnic_group: '',
-          type_of_abuse: '',
-          description: ''
+          country: '',
+          contactInfo: ''
         });
       } else {
-        alert('ሪፖርቱን ለማስገባት አልተሳካም።');
+        alert(data.error || "Failed to submit report.");
       }
     } catch (error) {
-      console.error('Error submitting report:', error.message);
-      alert('መላክ አልተሳካም። እባክህ እንደገና ሞክር።');
+      alert("Something went wrong. Please try again.");
+      console.error(error);
     }
   };
 
