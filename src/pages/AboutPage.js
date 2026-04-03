@@ -1,7 +1,7 @@
 import React from 'react';
 import { platformPrinciples, siteMapSections } from '../data/siteContent';
 
-function About() {
+function AboutPage() {
   return (
     <div className="page-shell page-interior">
       <section className="page-hero">
@@ -64,4 +64,4 @@ function About() {
   );
 }
 
-export default About;
+export default AboutPage;

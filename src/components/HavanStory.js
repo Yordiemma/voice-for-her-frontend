@@ -1,6 +1,6 @@
 // HavanStory.js
 import React from 'react';
-import './HavanStory.css';
+import '../styles/legacy/HavanStory.css';
 
 function HavanStory() {
   return (

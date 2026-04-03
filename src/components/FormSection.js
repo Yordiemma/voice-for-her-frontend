@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './FormSection.css';
+import '../styles/legacy/FormSection.css';
 
 function FormSection({ formData, handleChange, handleSubmit }) {
 

@@ -1,84 +1,67 @@
 import React from 'react';
-
-import './Help.css';
+import {
+  contactChannels,
+  supportResources,
+  trustedOrganizations
+} from '../data/siteContent';
 
 function Help() {
   return (
-    <div>
-      <section className="help-section">
-        <h1>Get Help</h1>
-        <p className="intro-text">Need help now? Contact these organizations.</p>
-        <div className="card-container">
-
-          {/* Red Cross Ethiopia */}
-          <div className="help-card">
-            <h3>Ethiopian Red Cross Society (Tigray and Amhara Regions)</h3>
-            <p>Amhara Office:</p>
-            <p>Phone: +251 58 111 1111</p> {/* Placeholder phone number */}
-            <p>Tigray Office:</p>
-            <p>Phone: +251 34 441 1234</p> {/* Placeholder phone number */}
-            <p>Website: <a href="http://www.redcrosseth.org" target="_blank" rel="noopener noreferrer">www.redcrosseth.org</a></p>
-            <p>The Red Cross operates in both Amhara and Tigray, providing emergency relief, medical services, and psychosocial support.</p>
-          </div>
-
-          {/* International Rescue Committee (IRC) */}
-          <div className="help-card">
-            <h3>International Rescue Committee (IRC) - Tigray and Amhara</h3>
-            <p>Tigray Office:</p>
-            <p>Phone: +251 34 441 5678</p> {/* Placeholder phone number */}
-            <p>Amhara Office:</p>
-            <p>Phone: +251 58 222 3333</p> {/* Placeholder phone number */}
-            <p>Website: <a href="http://www.rescue.org/country/ethiopia" target="_blank" rel="noopener noreferrer">www.rescue.org/country/ethiopia</a></p>
-            <p>The IRC is active in both regions, providing humanitarian aid, medical care, and protection services. Contact them for more details.</p>
-          </div>
-
-          {/* Médecins Sans Frontières (MSF) */}
-          <div className="help-card">
-            <h3>Médecins Sans Frontières (MSF) - Tigray and Amhara</h3>
-            <p>Tigray Office:</p>
-            <p>Phone: +251 34 441 7654</p> {/* Placeholder phone number */}
-            <p>Amhara Office:</p>
-            <p>Phone: +251 58 333 4444</p> {/* Placeholder phone number */}
-            <p>Website: <a href="http://www.msf.org/ethiopia" target="_blank" rel="noopener noreferrer">www.msf.org/ethiopia</a></p>
-            <p>MSF provides medical care, including psychological support to survivors of violence and conflict, in Tigray and Amhara.</p>
-          </div>
-
-          {/* United Nations Office for the Coordination of Humanitarian Affairs (OCHA) */}
-          <div className="help-card">
-            <h3>United Nations Office for the Coordination of Humanitarian Affairs (OCHA) - Tigray and Amhara</h3>
-            <p>Tigray Office:</p>
-            <p>Phone: +251 34 441 8900</p> {/* Placeholder phone number */}
-            <p>Amhara Office:</p>
-            <p>Phone: +251 58 444 5678</p> {/* Placeholder phone number */}
-            <p>Website: <a href="http://www.unocha.org/ethiopia" target="_blank" rel="noopener noreferrer">www.unocha.org/ethiopia</a></p>
-            <p>OCHA coordinates humanitarian responses, including protection services for women and children in Tigray and Amhara.</p>
-          </div>
-
-          {/* Ethiopian Human Rights Commission (EHRC) */}
-          <div className="help-card">
-            <h3>Ethiopian Human Rights Commission (EHRC) - Tigray and Amhara</h3>
-            <p>Tigray Office:</p>
-            <p>Phone: +251 34 441 2222</p> {/* Placeholder phone number */}
-            <p>Amhara Office:</p>
-            <p>Phone: +251 58 111 5678</p> {/* Placeholder phone number */}
-            <p>Website: <a href="http://www.ehrc.org" target="_blank" rel="noopener noreferrer">www.ehrc.org</a></p>
-            <p>The EHRC has regional offices in both Tigray and Amhara. Contact them to report human rights abuses or seek assistance.</p>
-          </div>
-
-          {/* Local Health Facilities and Hospitals */}
-          <div className="help-card">
-            <h3>Local Health Facilities and Hospitals in Amhara and Tigray</h3>
-            <p><strong>Amhara Region:</strong></p>
-            <p>Gondar University Hospital:</p>
-            <p>Phone: +251 58 111 4844</p>
-            <p><strong>Tigray Region:</strong></p>
-            <p>Ayder Referral Hospital:</p>
-            <p>Phone: +251 34 441 3296</p>
-          </div>
-          
-        </div>
+    <div className="page-shell page-interior">
+      <section className="page-hero">
+        <div className="section-kicker">Contact and Help Resources</div>
+        <h1>Support pathways should be clear, calm, and easy to reach.</h1>
+        <p className="page-intro">
+          Voice for Her is not a replacement for emergency services. If someone
+          is in immediate danger, contact local emergency responders or a nearby
+          crisis resource right away.
+        </p>
       </section>
-    
+
+      <section className="section-block three-column-grid">
+        {supportResources.map((resource) => (
+          <article className="content-card" key={resource.title}>
+            <h3>{resource.title}</h3>
+            <p>{resource.description}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="section-block two-column-layout">
+        <article className="content-card">
+          <div className="section-kicker">Contact</div>
+          <h2>Reach the platform team</h2>
+          <div className="contact-list">
+            {contactChannels.map((channel) => (
+              <div className="contact-row" key={channel.title}>
+                <strong>{channel.title}</strong>
+                <p>{channel.detail}</p>
+                <span>{channel.action}</span>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article className="content-card">
+          <div className="section-kicker">Trusted Organizations</div>
+          <h2>Start with established support networks</h2>
+          <div className="contact-list">
+            {trustedOrganizations.slice(0, 4).map((organization) => (
+              <div className="contact-row" key={organization.name}>
+                <strong>{organization.name}</strong>
+                <p>{organization.focus}</p>
+                <a
+                  href={organization.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {organization.url.replace('https://', '')}
+                </a>
+              </div>
+            ))}
+          </div>
+        </article>
+      </section>
     </div>
   );
 }

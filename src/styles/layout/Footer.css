@@ -1,0 +1,45 @@
+.site-footer {
+  margin-top: 5rem;
+  padding: 3rem 2rem 2rem;
+  background: #173042;
+  color: #f7f4ee;
+}
+
+.footer-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.footer-grid h3,
+.footer-brand {
+  margin: 0 0 0.75rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.footer-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.footer-grid p,
+.footer-note {
+  margin: 0;
+  color: rgba(247, 244, 238, 0.82);
+  line-height: 1.7;
+}
+
+.footer-note {
+  max-width: 1180px;
+  margin: 2rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(247, 244, 238, 0.16);
+}
+
+@media (max-width: 820px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

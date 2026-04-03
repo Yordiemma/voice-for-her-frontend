@@ -1,22 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer'; 
-import HomePage from './components/HomePage';
-import About from './components/About';
-import Help from './components/Help';
-import AwareHer from './components/Awareher';
+import SiteLayout from './layout/SiteLayout';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import HelpPage from './pages/HelpPage';
+import ReportPage from './pages/ReportPage';
+import ArticlesPage from './pages/ArticlesPage';
+import DonatePage from './pages/DonatePage';
+import './styles/globals/App.css';
+
 function App() {
   return (
     <Router>
-      <Navbar /> {}
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/help" element={<Help />} />
-        <Route path="/awareHer" element={<AwareHer />} /> {}
+        <Route element={<SiteLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/report" element={<ReportPage />} />
+          <Route path="/articles" element={<ArticlesPage />} />
+          <Route path="/donate" element={<DonatePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/help" element={<HelpPage />} />
+        </Route>
       </Routes>
-      <Footer /> {}
     </Router>
   );
 }

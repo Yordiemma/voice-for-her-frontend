@@ -1,5 +1,5 @@
 import React from 'react';
-import './DataDonation.css';
+import '../styles/legacy/DataDonation.css';
 
 function DataDonation() {
   return (

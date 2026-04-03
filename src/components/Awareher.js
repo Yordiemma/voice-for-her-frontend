@@ -1,5 +1,5 @@
 import React from 'react';
-import './Awareher.css';
+import '../styles/legacy/Awareher.css';
 
 function Awareher() {
   return (
