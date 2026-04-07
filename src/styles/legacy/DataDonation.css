@@ -28,17 +28,24 @@
   }
   
   .donate-button {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #FF7F50;
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #c74f3d;
+    color: #fffaf4;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 1px solid #c74f3d;
+    box-shadow: 0 12px 30px rgba(199, 79, 61, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   }
   
   .donate-button:hover {
-    background-color: #FF5722;
+    background-color: #c74f3d;
+    transform: translateY(-1px);
   }
   

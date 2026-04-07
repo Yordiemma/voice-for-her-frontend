@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/legacy/DataDonation.css';
 
 function DataDonation() {
@@ -12,14 +13,9 @@ function DataDonation() {
         <div className="donation-message">
           <h3>Help Us Make a Difference</h3>
           <p>Since Abiy Ahmed came to power...</p>
-          <a 
-            href="https://donate.unhcr.org/int/en/ethiopia-emergency" 
-            className="donate-button" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            Donate: UNICEF Ethiopia Emergency Fund
-          </a>
+          <Link to="/donate" className="donate-button">
+            Donate through trusted organizations
+          </Link>
         </div>
       </div>
     </section>

@@ -12,6 +12,10 @@ function DonatePage() {
           credible aid networks. Each link below goes to an official
           organization site so visitors can donate directly.
         </p>
+        <p className="page-intro">
+          Choose one of the organizations below to continue to its official
+          donation or support page.
+        </p>
       </section>
 
       <section className="section-block organizations-grid">

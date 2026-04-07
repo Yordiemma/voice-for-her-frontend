@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   contactChannels,
   supportResources,
@@ -45,6 +46,13 @@ function Help() {
         <article className="content-card">
           <div className="section-kicker">Trusted Organizations</div>
           <h2>Start with established support networks</h2>
+          <p>
+            If you want to donate, go to the Donate page to choose from the
+            official organizations we recommend.
+          </p>
+          <Link to="/donate" className="secondary-button article-link">
+            Go to Donate page
+          </Link>
           <div className="contact-list">
             {trustedOrganizations.slice(0, 4).map((organization) => (
               <div className="contact-row" key={organization.name}>

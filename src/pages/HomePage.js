@@ -34,7 +34,10 @@ const homeRoutes = [
 function HomePage() {
   return (
     <div className="page-shell">
-      <section className="home-hero">
+      <section
+        className="home-hero home-hero-background"
+        style={{ '--hero-image': `url("${heroImage}")` }}
+      >
         <div className="hero-copy">
           <div className="section-kicker">Voice for Her</div>
           <h1>Every report represents a woman or child who should never have been left unprotected.</h1>
@@ -58,23 +61,14 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="hero-visual">
-          <div className="hero-image-shell">
-            <img
-              src={heroImage}
-              alt="Women standing together in support"
-              className="hero-main-image"
-            />
-            <div className="hero-floating-card">
-              <h2>What matters here</h2>
-              <ul>
-                <li>Make abuse visible</li>
-                <li>Protect women and children</li>
-                <li>Turn reports into public truth</li>
-                <li>Move people toward action</li>
-              </ul>
-            </div>
-          </div>
+        <div className="hero-floating-card">
+          <h2>What matters here</h2>
+          <ul>
+            <li>Make abuse visible</li>
+            <li>Protect women and children</li>
+            <li>Turn reports into public truth</li>
+            <li>Move people toward action</li>
+          </ul>
         </div>
       </section>
 

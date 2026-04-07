@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { submitReport } from '../utils/api';
+import { abuseTypeOptions, countryOptions } from '../data/countryOptions';
 
 const initialState = {
   abuseType: '',
@@ -13,6 +14,7 @@ function ReportForm({ compact = false }) {
   const [formData, setFormData] = useState(initialState);
   const [status, setStatus] = useState({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
@@ -51,6 +53,7 @@ function ReportForm({ compact = false }) {
           tokenMessage
       });
       setFormData(initialState);
+      setShowSuccessModal(true);
     } catch (error) {
       setStatus({
         type: 'error',
@@ -81,14 +84,11 @@ function ReportForm({ compact = false }) {
               required
             >
               <option value="">Select one</option>
-              <option value="physical">Physical</option>
-              <option value="sexual">Sexual</option>
-              <option value="emotional">Emotional</option>
-              <option value="verbal">Verbal</option>
-              <option value="online">Online / digital</option>
-              <option value="neglect">Neglect</option>
-              <option value="forced marriage">Forced marriage</option>
-              <option value="other">Other</option>
+              {abuseTypeOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
             </select>
           </label>
 
@@ -108,14 +108,19 @@ function ReportForm({ compact = false }) {
 
           <label className="form-field-wide">
             Country or region
-            <input
-              type="text"
+            <select
               name="country"
               value={formData.country}
               onChange={handleChange}
-              placeholder="For example: Kenya, Canada, Brazil, or Global / Unknown"
               required
-            />
+            >
+              <option value="">Select a country or region</option>
+              {countryOptions.map((country) => (
+                <option key={country} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
           </label>
 
           <label className="checkbox-field form-field-wide">
@@ -157,6 +162,31 @@ function ReportForm({ compact = false }) {
           <div className={`form-status ${status.type}`}>{status.message}</div>
         )}
       </form>
+
+      {showSuccessModal && (
+        <div className="success-modal-backdrop" role="presentation">
+          <div
+            className="success-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="report-success-title"
+          >
+            <div className="section-kicker">Thank You</div>
+            <h3 id="report-success-title">Thank you for your report.</h3>
+            <p>
+              Your report has been submitted successfully and saved to the
+              system.
+            </p>
+            <button
+              type="button"
+              className="primary-button"
+              onClick={() => setShowSuccessModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

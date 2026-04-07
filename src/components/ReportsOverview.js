@@ -181,23 +181,6 @@ function ReportsOverview() {
               </div>
             </article>
           </div>
-
-          <article className="table-card">
-            <div className="table-card-heading">
-              <h3>Country ranking summary</h3>
-              <p>
-                This ranking shows where the highest number of reports are being recorded.
-              </p>
-            </div>
-            <div className="country-list">
-              {(summary.countryData || []).map((item, index) => (
-                <div className="country-row" key={`${item.name}-${index}`}>
-                  <span>{item.name}</span>
-                  <strong>{item.value}</strong>
-                </div>
-              ))}
-            </div>
-          </article>
         </>
       )}
     </section>

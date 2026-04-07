@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { platformPrinciples, siteMapSections } from '../data/siteContent';
 
 function AboutPage() {
@@ -56,6 +57,9 @@ function AboutPage() {
             <article className="content-card" key={section.title}>
               <h3>{section.title}</h3>
               <p>{section.description}</p>
+              <Link to={section.to} className="secondary-button about-nav-button">
+                {section.action}
+              </Link>
             </article>
           ))}
         </div>

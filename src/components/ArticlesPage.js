@@ -1,6 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { featuredArticles } from '../data/siteContent';
 import spotlightImage from '../assets/Faven.jpg';
+
+const havanArticleUrl =
+  'https://zehabesha.com/rape-and-murder-of-7-year-old-girl-public-outrage-news-examiner/';
 
 function ArticlesPage() {
   return (
@@ -29,6 +33,14 @@ function ArticlesPage() {
             This platform keeps stories like hers visible so awareness can lead
             to pressure, protection, accountability, and action.
           </p>
+          <a
+            href={havanArticleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="secondary-button article-link"
+          >
+            Read Havan&apos;s full story
+          </a>
         </article>
 
         <article className="content-card">
@@ -59,6 +71,9 @@ function ArticlesPage() {
             <h2>{article.title}</h2>
             <p>{article.excerpt}</p>
             <strong>{article.readTime}</strong>
+            <Link to={`/articles/${article.slug}`} className="article-link">
+              Read more
+            </Link>
           </article>
         ))}
       </section>
