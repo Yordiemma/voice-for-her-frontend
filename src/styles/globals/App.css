@@ -339,6 +339,51 @@
   margin-top: 1rem;
 }
 
+.about-feature-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(240, 166, 106, 0.18), transparent 34%),
+    linear-gradient(180deg, rgba(255, 250, 244, 0.96), rgba(255, 255, 255, 0.94));
+}
+
+.about-feature-card h2 {
+  margin-top: 0.35rem;
+}
+
+.about-nav-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background:
+    linear-gradient(180deg, rgba(70, 112, 142, 0.08), rgba(255, 255, 255, 0.96)),
+    #fff;
+}
+
+.about-nav-card h3 {
+  margin: 0.35rem 0 0;
+}
+
+.about-nav-card p {
+  flex: 1;
+}
+
+.help-resource-card {
+  background:
+    radial-gradient(circle at top right, rgba(122, 167, 163, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 244, 238, 0.92));
+}
+
+.help-resource-card h3 {
+  margin: 0.35rem 0 0;
+}
+
+.help-panel-card {
+  background:
+    radial-gradient(circle at top right, rgba(240, 166, 106, 0.16), transparent 32%),
+    linear-gradient(180deg, rgba(255, 250, 244, 0.96), rgba(255, 255, 255, 0.94));
+}
+
 .route-card-alert {
   background: linear-gradient(180deg, rgba(199, 79, 61, 0.1), rgba(255, 255, 255, 0.95));
 }
@@ -585,6 +630,28 @@
   color: #173042;
 }
 
+.contact-row strong {
+  min-width: 11rem;
+  color: #173042;
+}
+
+.contact-row p,
+.contact-row span,
+.contact-row a {
+  margin: 0;
+  color: #4b6472;
+  line-height: 1.7;
+}
+
+.contact-row a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.contact-row a:hover {
+  text-decoration: underline;
+}
+
 .support-band {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -635,8 +702,48 @@
 
 .organization-card a {
   width: fit-content;
-  background: rgba(23, 48, 66, 0.08);
+}
+
+.donate-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top right, rgba(240, 166, 106, 0.18), transparent 34%),
+    linear-gradient(180deg, rgba(255, 250, 244, 0.96), rgba(255, 255, 255, 0.94));
+}
+
+.donate-card h2 {
+  margin-bottom: 0.2rem;
+}
+
+.donate-card-title-link {
   color: #173042;
+  text-decoration: none;
+}
+
+.donate-card-title-link:hover {
+  text-decoration: underline;
+}
+
+.donate-card p {
+  flex: 1;
+}
+
+.donate-card a {
+  margin-top: auto;
+  width: 100%;
+}
+
+.donate-card-button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.donate-card-note {
+  margin-top: 0.5rem;
+  color: #4b6472;
+  font-size: 0.92rem;
 }
 
 .support-band .organization-card {

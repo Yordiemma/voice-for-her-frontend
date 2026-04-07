@@ -21,7 +21,8 @@ function Help() {
 
       <section className="section-block three-column-grid">
         {supportResources.map((resource) => (
-          <article className="content-card" key={resource.title}>
+          <article className="content-card help-resource-card" key={resource.title}>
+            <div className="section-kicker">Support Step</div>
             <h3>{resource.title}</h3>
             <p>{resource.description}</p>
           </article>
@@ -29,7 +30,7 @@ function Help() {
       </section>
 
       <section className="section-block two-column-layout">
-        <article className="content-card">
+        <article className="content-card help-panel-card">
           <div className="section-kicker">Contact</div>
           <h2>Reach the platform team</h2>
           <div className="contact-list">
@@ -43,7 +44,7 @@ function Help() {
           </div>
         </article>
 
-        <article className="content-card">
+        <article className="content-card help-panel-card">
           <div className="section-kicker">Trusted Organizations</div>
           <h2>Start with established support networks</h2>
           <p>

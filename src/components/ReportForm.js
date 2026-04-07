@@ -159,17 +159,28 @@ function ReportForm({ compact = false }) {
         </button>
 
         {status.message && (
-          <div className={`form-status ${status.type}`}>{status.message}</div>
+          <div
+            className={`form-status ${status.type}`}
+            role={status.type === 'error' ? 'alert' : 'status'}
+            aria-live="polite"
+          >
+            {status.message}
+          </div>
         )}
       </form>
 
       {showSuccessModal && (
-        <div className="success-modal-backdrop" role="presentation">
+        <div
+          className="success-modal-backdrop"
+          role="presentation"
+          onClick={() => setShowSuccessModal(false)}
+        >
           <div
             className="success-modal"
             role="dialog"
             aria-modal="true"
             aria-labelledby="report-success-title"
+            onClick={(event) => event.stopPropagation()}
           >
             <div className="section-kicker">Thank You</div>
             <h3 id="report-success-title">Thank you for your report.</h3>

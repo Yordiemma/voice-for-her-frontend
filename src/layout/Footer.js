@@ -22,7 +22,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-note">
-        © 2026 Voice for Her. Built to center the mission, the data, and the people served.
+        © 2026 Voice for Her.
       </div>
     </footer>
   );

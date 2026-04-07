@@ -20,12 +20,29 @@ function DonatePage() {
 
       <section className="section-block organizations-grid">
         {trustedOrganizations.map((organization) => (
-          <article className="organization-card" key={organization.name}>
-            <h2>{organization.name}</h2>
+          <article className="organization-card donate-card" key={organization.name}>
+            <div className="section-kicker">Trusted Organization</div>
+            <h2>
+              <a
+                href={organization.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="donate-card-title-link"
+              >
+                {organization.name}
+              </a>
+            </h2>
             <p>{organization.focus}</p>
-            <a href={organization.url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={organization.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="secondary-button donate-card-button"
+              aria-label={`Donate to ${organization.name}`}
+            >
               {organization.cta}
             </a>
+            <span className="donate-card-note">Opens the official donation page</span>
           </article>
         ))}
       </section>

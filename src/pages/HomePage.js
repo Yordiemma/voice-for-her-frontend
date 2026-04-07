@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import GlobalAbuseMapSection from '../components/sections/GlobalAbuseMapSection';
-import ReportsOverview from '../components/sections/ReportsOverview';
+import GlobalAbuseMapSection from '../components/GlobalAbuseMapSection';
+import ReportsOverview from '../components/ReportsOverview';
 import heroImage from '../assets/w copy.png';
 
 const homeRoutes = [

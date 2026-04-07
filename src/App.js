@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SiteLayout from './layout/SiteLayout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import HelpPage from './pages/HelpPage';
-import ReportPage from './pages/ReportPage';
-import ArticlesPage from './pages/ArticlesPage';
-import ArticleDetailPage from './pages/ArticleDetailPage';
-import DonatePage from './pages/DonatePage';
+import HelpPage from './components/Help';
+import ReportPage from './components/ReportPage';
+import ArticlesPage from './components/ArticlesPage';
+import ArticleDetailPage from './components/ArticleDetailPage';
+import DonatePage from './components/DonatePage';
 import './styles/globals/App.css';
 
 function App() {

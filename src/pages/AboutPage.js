@@ -16,7 +16,8 @@ function AboutPage() {
       </section>
 
       <section className="section-block two-column-layout">
-        <article className="content-card">
+        <article className="content-card about-feature-card">
+          <div className="section-kicker">How It Works</div>
           <h2>How the platform works</h2>
           <p>
             Public visitors can read awareness content, explore charts and
@@ -30,7 +31,8 @@ function AboutPage() {
           </p>
         </article>
 
-        <article className="content-card">
+        <article className="content-card about-feature-card">
+          <div className="section-kicker">Core Principles</div>
           <h2>Platform principles</h2>
           <ul className="feature-list">
             {platformPrinciples.map((principle) => (
@@ -54,7 +56,8 @@ function AboutPage() {
 
         <div className="site-map-grid">
           {siteMapSections.map((section) => (
-            <article className="content-card" key={section.title}>
+            <article className="content-card about-nav-card" key={section.title}>
+              <div className="section-kicker">Page</div>
               <h3>{section.title}</h3>
               <p>{section.description}</p>
               <Link to={section.to} className="secondary-button about-nav-button">
